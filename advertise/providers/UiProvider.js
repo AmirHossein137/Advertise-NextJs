@@ -1,6 +1,6 @@
 import { NextUIProvider } from "@nextui-org/react";
 
-const NextuiProvider = ({ children }) => {
+const UiProvider = ({ children }) => {
   return (
     <div>
       <NextUIProvider>{children}</NextUIProvider>
@@ -8,4 +8,4 @@ const NextuiProvider = ({ children }) => {
   );
 };
 
-export default NextuiProvider;
+export default UiProvider;
