@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
-import connectDB from "../../../../../utils/connectDB";
-import UserAdvertise from "../../../../../models/UserAdvertise";
+import connectDB from "@/utils/connectDB";
+import UserAdvertise from "@/models/UserAdvertise";
+import { hashPassword } from "@/utils/auth";
 
 export async function POST(req) {
   try {
@@ -19,7 +20,25 @@ export async function POST(req) {
         { status: 422 }
       );
     }
+
+    const hashPass = await hashPassword(password);
+
+    const NewUser = await UserAdvertise.create({
+      email: email,
+      password: hashPass,
+    });
+
+    console.log(NewUser);
+
+    return NextResponse.json(
+      { message: "The account was created successfully" },
+      { status: 201 }
+    );
   } catch (err) {
     console.log(err);
+    return NextResponse.json(
+      { error: "A problem has occurred on the server" },
+      { status: 500 }
+    );
   }
 }

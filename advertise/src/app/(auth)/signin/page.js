@@ -1,8 +1,10 @@
-
+import SignInPage from "@/template/SignInPage"
 
 const SignIn = () => {
   return (
-    <div>SignIn</div>
+    <div>
+      <SignInPage />
+    </div>
   )
 }
 
