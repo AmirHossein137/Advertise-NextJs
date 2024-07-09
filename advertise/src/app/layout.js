@@ -1,9 +1,9 @@
 import { Inter } from "next/font/google";
+import UiProvider from "@/providers/UiProvider";
+import Layout from "@/layout/Layout";
+import Header from "@/modules/Header";
+import NextAuthProvider from "@/providers/NextAuthProvider";
 import "./globals.css";
-import NextuiProvider from "../../providers/uiProvider";
-import Layout from "@/components/layout/Layout";
-import authProvider from "../../providers/authProvider";
-import Header from "@/components/modules/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,14 +16,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <authProvider>
-          <NextuiProvider>
+        <UiProvider>
+          <NextAuthProvider>
             <Layout>
               <Header />
               {children}
             </Layout>
-          </NextuiProvider>
-        </authProvider>
+          </NextAuthProvider>
+        </UiProvider>
       </body>
     </html>
   );

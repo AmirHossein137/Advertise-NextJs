@@ -3,7 +3,6 @@ import {
   ModalContent,
   ModalHeader,
   ModalBody,
-  ModalFooter,
   Button,
   useDisclosure,
 } from "@nextui-org/react";
@@ -18,8 +17,10 @@ const SearchModal = () => {
     <div className="flex flex-col gap-2">
       <Button onPress={onOpen} className="bg-gray-200">
         <div className="flex items-center gap-2">
-          <div className="w-80 flex items-end text-gray-500">Search Your Advertise ...</div>
-          <Search className="rotate-90 text-gray-500"/>
+          <div className="w-80 flex items-end text-gray-500">
+            Search Your Advertise ...
+          </div>
+          <Search className="rotate-90 text-gray-500" />
         </div>
       </Button>
       <Modal
@@ -109,14 +110,6 @@ const SearchModal = () => {
                   veniam.
                 </p>
               </ModalBody>
-              <ModalFooter>
-                <Button color="danger" variant="light" onPress={onClose}>
-                  Close
-                </Button>
-                <Button color="primary" onPress={onClose}>
-                  Action
-                </Button>
-              </ModalFooter>
             </>
           )}
         </ModalContent>

@@ -5,16 +5,32 @@ import { Button, Input } from "@nextui-org/react";
 import { EyeFilledIcon } from "@/public/Icon/EyeFilledIcon";
 import { EyeSlashFilledIcon } from "@/public/Icon/EyeSlashFilledIcon";
 import Link from "next/link";
+import { signIn } from "next-auth/react";
+import { toast, Toaster } from "react-hot-toast";
+import { useRouter } from "next/navigation";
+import Loader from "@/modules/Loader";
 
 const SignInPage = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [email, setEmial] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
   const toggleVisibility = () => setIsVisible(!isVisible);
 
-  const handleSignin =() => {
-    console.log({ email , password })
-  }
+  const handleSignin = async () => {
+    setLoading(true);
+    const res = await signIn("credentials", {
+      email,
+      password,
+      redirect: false,
+    });
+    setLoading(false);
+    if (res.ok) {
+      toast.success(`${email} Logged In...`);
+      router.push("/");
+    }
+  };
 
   return (
     <div className="w-full h-[80vh] flex items-center justify-center">
@@ -51,15 +67,28 @@ const SignInPage = () => {
             }
             type={isVisible ? "text" : "password"}
           />
-          <Button size="lg" variant="shadow" color="secondary" onClick={handleSignin}>
+          <Button
+            size="lg"
+            variant="shadow"
+            color="secondary"
+            onClick={handleSignin}
+          >
             Signin
           </Button>
         </div>
         <div className="flex items-center justify-center gap-2 text-sm mt-5">
-            <span className="text-gray-500">If you do not have an account register?</span>
-            <Link href='/signup' className="text-violet-800 underline font-medium">SignUp</Link>
+          <span className="text-gray-500">
+            If you do not have an account register?
+          </span>
+          <Link
+            href="/signup"
+            className="text-violet-800 underline font-medium"
+          >
+            {loading ? <Loader /> : "SignUp"}
+          </Link>
         </div>
       </div>
+      <Toaster />
     </div>
   );
 };
