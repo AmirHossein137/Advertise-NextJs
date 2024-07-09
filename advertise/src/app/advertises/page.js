@@ -1,8 +1,11 @@
 import React from 'react'
+import AdvertisesPage from '@/template/AdvertisesPage'
 
 const Advertises = () => {
   return (
-    <div>Advertises</div>
+    <div>
+      <AdvertisesPage />
+    </div>
   )
 }
 

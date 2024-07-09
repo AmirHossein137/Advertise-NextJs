@@ -1,0 +1,1 @@
+export const categories = ["car" , "mobile" , "laptop" , "tablet" , "shoes"]

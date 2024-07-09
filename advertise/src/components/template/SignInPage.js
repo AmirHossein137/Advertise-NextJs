@@ -28,7 +28,7 @@ const SignInPage = () => {
     setLoading(false);
     if (res.ok) {
       toast.success(`${email} Logged In...`);
-      router.push("/");
+      router.push("/advertises");
     }
   };
 
