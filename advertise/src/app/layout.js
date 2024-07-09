@@ -3,6 +3,7 @@ import "./globals.css";
 import NextuiProvider from "../../providers/uiProvider";
 import Layout from "@/components/layout/Layout";
 import authProvider from "../../providers/authProvider";
+import Header from "@/components/modules/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +18,10 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <authProvider>
           <NextuiProvider>
-            <Layout>{children}</Layout>
+            <Layout>
+              <Header />
+              {children}
+            </Layout>
           </NextuiProvider>
         </authProvider>
       </body>
