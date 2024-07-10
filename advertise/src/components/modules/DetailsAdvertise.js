@@ -1,5 +1,5 @@
 import { Button, Input } from "@nextui-org/react";
-import { Plus, Trash } from "lucide-react";
+import { Plus } from "lucide-react";
 
 const DetailsAdvertise = ({ formData, setFormData, detail, title }) => {
   const detailAdder = () => {
@@ -8,14 +8,14 @@ const DetailsAdvertise = ({ formData, setFormData, detail, title }) => {
 
   const detailHandler = (e, index) => {
     const { value } = e.target;
-    const listItem = [...formData[detail]];
+    let listItem = [...formData[detail]];
     listItem[index] = value;
     setFormData({ ...formData, [detail]: listItem });
   };
 
   const deteleHandler = (index) => {
     const list = [...formData[detail]];
-    list.splice(index, 1);
+    list.splice( index , 1 )
     setFormData({ ...formData, [detail]: list });
   };
 
@@ -32,7 +32,7 @@ const DetailsAdvertise = ({ formData, setFormData, detail, title }) => {
             placeholder={`write Your ${detail}`}
             onChange={(e) => detailHandler(e, index)}
           />
-          <Button size="lg" color="danger" onclick={() => deteleHandler(index)}>
+          <Button size="lg" color="danger" onClick={() => deteleHandler(index)}>
             Delete
           </Button>
         </div>

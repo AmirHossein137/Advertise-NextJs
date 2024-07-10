@@ -1,4 +1,4 @@
-import { Input } from "@nextui-org/react";
+import { Input, Textarea } from "@nextui-org/react";
 
 const AdvertiseInput = ({ formData, setFormData, label, name }) => {
   const inputHandler = (e) => {
@@ -6,13 +6,25 @@ const AdvertiseInput = ({ formData, setFormData, label, name }) => {
     setFormData({ ...formData, [name]: value });
   };
   return (
-    <Input
-      type="text"
-      value={formData[name]}
-      label={label}
-      name={name}
-      onChange={inputHandler}
-    />
+    <>
+      {name === "description" ? (
+        <Textarea
+          value={formData[name]}
+          name={name}
+          label={label}
+          placeholder="Enter your description"
+          onChange={inputHandler}
+        />
+      ) : (
+        <Input
+          type="text"
+          value={formData[name]}
+          label={label}
+          name={name}
+          onChange={inputHandler}
+        />
+      )}
+    </>
   );
 };
 

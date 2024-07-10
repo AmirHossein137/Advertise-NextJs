@@ -22,10 +22,6 @@ const AdvertiseSchema = new Schema(
       type: Number,
       required: true,
     },
-    constructionDate: {
-      type: Date,
-      required: true,
-    },
     category: {
       type: String,
       enum: ["car", "mobile", "laptop", "tablet", "shoes"],
