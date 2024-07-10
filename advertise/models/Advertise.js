@@ -39,10 +39,6 @@ const AdvertiseSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "UserAdvertise",
     },
-    published: {
-      type: Boolean,
-      default: false,
-    },
   },
   { timestamps: true }
 );
