@@ -40,7 +40,7 @@ const AdvertiseSchema = new Schema(
       ref: "UserAdvertise",
     },
   },
-  { timestamps: true }
+  // { timestamps: true }
 );
 
 const Advertise = models.Advertise || model("Advertise", AdvertiseSchema);

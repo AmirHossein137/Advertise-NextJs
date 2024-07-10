@@ -11,17 +11,17 @@ const MyAdvertise = async () => {
     { $match: { email: session.user.email } },
     {
       $lookup: {
-        from: "advertise",
+        from: "advertises",
         foreignField: "userId",
         localField: "_id",
-        as: "advertise",
+        as: "advertises",
       },
     },
   ]);
   console.log(user)
   return (
     <div>
-      <MyAdvertisePage />
+      <MyAdvertisePage advertises={user.advertises}/>
     </div>
   );
 };

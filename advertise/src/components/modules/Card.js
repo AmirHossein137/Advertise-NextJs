@@ -1,7 +1,9 @@
 
 const Card = () => {
   return (
-    <div>Card</div>
+    <div>
+      
+    </div>
   )
 }
 
