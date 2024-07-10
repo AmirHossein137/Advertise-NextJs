@@ -21,8 +21,6 @@ export async function POST(req) {
     } = await req.json();
 
     const session = await getServerSession(req);
-    console.log(session)
-    
     if (!session) {
       return NextResponse.json(
         { error: "Please login to your account" },
