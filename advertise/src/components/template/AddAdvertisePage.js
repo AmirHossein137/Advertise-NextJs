@@ -105,7 +105,7 @@ const AddAdvertisePage = ({ data }) => {
         <div className="col-span-12">
           <div className="flex flex-col gap-3">
             <span className="font-medium text-gray-600">Categories :</span>
-            <RadioCategory formData={formData} setFormData={setFormData} />
+            <RadioCategory formData={formData} setFormData={setFormData} data={data}/>
           </div>
         </div>
         <div className="col-span-6">

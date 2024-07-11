@@ -5,6 +5,21 @@ import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 import { Types } from "mongoose";
 
+export async function GET() {
+  try {
+    await connectDB();
+    const AllAdvertise = await Advertise.find();
+    return NextResponse.json({ data: AllAdvertise }, { status: 200 });
+    
+  } catch (err) {
+    console.log(err);
+    return NextResponse.json(
+      { error: "A problem has occurred on the server" },
+      { status: 500 }
+    );
+  }
+}
+
 export async function POST(req) {
   try {
     await connectDB();
@@ -60,8 +75,6 @@ export async function POST(req) {
       rules,
       userId: new Types.ObjectId(user._id),
     });
-
-    console.log(newAdvertise);
 
     return NextResponse.json(
       { message: "New Advertise Added" },
