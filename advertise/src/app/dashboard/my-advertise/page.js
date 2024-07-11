@@ -1,6 +1,6 @@
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import UserAdvertise from "@/models/UserAdvertise";
-import MyAdvertisePage from "@/template/MyAdvertisePage";
+import MyAdvertiseCard from "@/modules/MyAdvertiseCard";
 import connectDB from "@/utils/connectDB";
 import { getServerSession } from "next-auth";
 
@@ -18,10 +18,10 @@ const MyAdvertise = async () => {
       },
     },
   ]);
-  console.log(user)
+  console.log(user);
   return (
     <div>
-      <MyAdvertisePage advertises={user.advertises}/>
+      <MyAdvertiseCard data={user.advertises} />
     </div>
   );
 };
