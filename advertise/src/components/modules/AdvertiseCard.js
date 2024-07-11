@@ -1,7 +1,7 @@
 import {Button, Card, CardBody} from "@nextui-org/react";
 import Link from "next/link";
 
-const AdvertiseCard = ({data : { title , description , price , country , category }}) => {
+const AdvertiseCard = ({item : { title , description , price , country , category }}) => {
   return (
     <Card>
         <CardBody>
