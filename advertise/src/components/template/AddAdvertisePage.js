@@ -58,7 +58,10 @@ const AddAdvertisePage = ({ data }) => {
   }
 
   useEffect(() => {
-    setFormData(data);
+    if(data){
+      setFormData(data);
+    }
+    
   }, []);
 
   return (

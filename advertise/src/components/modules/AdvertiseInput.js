@@ -7,15 +7,6 @@ const AdvertiseInput = ({ formData, setFormData, label, name }) => {
   };
   return (
     <>
-      {name === "description" ? (
-        <Textarea
-          value={formData[name]}
-          name={name}
-          label={label}
-          placeholder="Enter your description"
-          onChange={inputHandler}
-        />
-      ) : (
         <Input
           type="text"
           value={formData[name]}
@@ -23,7 +14,6 @@ const AdvertiseInput = ({ formData, setFormData, label, name }) => {
           name={name}
           onChange={inputHandler}
         />
-      )}
     </>
   );
 };
