@@ -27,7 +27,7 @@ const Header = () => {
         <p className="text-2xl text-violet-400">Advertise</p>
       </Link>
 
-      <SearchModal />
+      {/* <SearchModal /> */}
       {status === "authenticated" ? (
         <Dropdown>
           <DropdownTrigger>

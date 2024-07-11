@@ -148,7 +148,7 @@ export async function PATCH(req) {
     advertise.price = price;
     advertise.category = category;
     advertise.amenities = amenities;
-    rules.rules = rules;
+    advertise.rules = rules;
     advertise.save();
 
     return NextResponse.json(

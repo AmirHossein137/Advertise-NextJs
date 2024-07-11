@@ -11,9 +11,9 @@ const AdvertisesPage = ({ data }) => {
         <AdvertiseCategories data={data} />
         <div className="grid grid-cols-12 gap-5">
           {data?.map((item) => (
-            <Link key={item._id} href={`/advertises/${item._id}`} className="col-span-4">
-              <AdvertiseCard item={item} />
-            </Link>
+            <div className="col-span-4">
+              <AdvertiseCard key={item._id} item={item} />
+            </div>
           ))}
         </div>
       </div>

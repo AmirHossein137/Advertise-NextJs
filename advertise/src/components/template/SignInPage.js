@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Button, Input } from "@nextui-org/react";
+import { Button , Input } from "@nextui-org/react";
 import { EyeFilledIcon } from "@/public/Icon/EyeFilledIcon";
 import { EyeSlashFilledIcon } from "@/public/Icon/EyeSlashFilledIcon";
 import Link from "next/link";
@@ -28,7 +28,7 @@ const SignInPage = () => {
     setLoading(false);
     if (res.ok) {
       toast.success(`${email} Logged In...`);
-      router.push("/advertises");
+      router.push("/");
     }
   };
 
